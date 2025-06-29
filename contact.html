@@ -1,0 +1,293 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact - AppMuse</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="./style.css">
+  </head>
+  <body class="font-didot min-h-screen">
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50">
+      <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+        <!-- Logo -->
+        <div class="flex items-center">
+          <img 
+            src="/assets/images/New Logo Centralised-min Circle.png" 
+            alt="AppMuse Logo"
+            class="logo-img logo-glow mr-2 logo-shift-left"
+            style="max-width: 40px; height: auto;"
+          />
+          <a href="/" class="font-didot text-2xl font-medium nav-link highlight-glow" style="text-decoration: none;">
+            AppMuse
+          </a>
+        </div>
+        
+        <!-- Desktop Navigation -->
+        <div class="hidden md:flex items-center space-x-8 desktop-nav">
+          <div class="dropdown">
+            <a href="#" class="nav-link">Music Production</a>
+            <div class="dropdown-menu">
+              <a href="/game-scoring.html">Game Scoring</a>
+              <a href="/anime-scoring.html">Anime/Animation Scoring</a>
+              <a href="https://appmuse-isekai.com/anime-scoring.html">Piano Accompaniment Track</a>
+            </div>
+          </div>
+          
+          <div class="dropdown">
+            <a href="#" class="nav-link">Education</a>
+            <div class="dropdown-menu">
+              <a href="https://appmuse-isekai.com/blog.html">Composition Course</a>
+              <a href="https://appmuse-isekai.com/blog.html">Piano Course</a>
+              <a href="https://appmuse-isekai.com/blog.html">Hybrid</a>
+              <a href="/blog.html">Blog</a>
+            </div>
+          </div>
+          
+          <div class="dropdown">
+            <a href="#" class="nav-link">Performance</a>
+            <div class="dropdown-menu">
+              <a href="/ambiance-performance.html">Ambiance Piano Performance</a>
+              <a href="/classical-performance.html">Classical Performance</a>
+            </div>
+          </div>
+          
+          <a href="/pricing.html" class="nav-link">Pricing</a>
+          <a href="/about.html" class="nav-link">About</a>
+          <a href="/contact.html" class="nav-link">Contact</a>
+        </div>
+        
+        <!-- Theme Toggle & Language Switcher -->
+        <div class="flex items-center space-x-4">
+          <!-- Theme Toggle Button -->
+          <button id="theme-switch" title="Toggle theme">
+            <svg class="w-5 h-5 sun-icon" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 2.25a.75.75 0 01.75.75v2.25a.75.75 0 01-1.5 0V3a.75.75 0 01.75-.75zM7.5 12a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM18.894 6.166a.75.75 0 00-1.06-1.06l-1.591 1.59a.75.75 0 101.06 1.061l1.591-1.59zM21.75 12a.75.75 0 01-.75.75h-2.25a.75.75 0 010-1.5H21a.75.75 0 01.75.75zM17.834 18.894a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 10-1.061 1.06l1.59 1.591zM12 18a.75.75 0 01.75.75V21a.75.75 0 01-1.5 0v-2.25A.75.75 0 0112 18zM7.758 17.303a.75.75 0 00-1.061-1.06l-1.591 1.59a.75.75 0 001.06 1.061l1.591-1.59zM6 12a.75.75 0 01-.75.75H3a.75.75 0 010-1.5h2.25A.75.75 0 016 12zM6.697 7.757a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 00-1.061 1.06l1.59 1.591z"/>
+            </svg>
+            <svg class="w-5 h-5 moon-icon hidden" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M9.528 1.718a.75.75 0 01.162.819A8.97 8.97 0 009 6a9 9 0 009 9 8.97 8.97 0 003.463-.69.75.75 0 01.981.98 10.503 10.503 0 01-9.694 6.46c-5.799 0-10.5-4.701-10.5-10.5 0-4.368 2.667-8.112 6.46-9.694a.75.75 0 01.818.162z"/>
+            </svg>
+          </button>
+          
+          <!-- Language Switcher Dropdown -->
+          <div class="dropdown">
+            <button class="lang-dropdown-btn flex items-center space-x-1 text-sm">
+              <span id="current-lang">EN</span>
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/>
+              </svg>
+            </button>
+            <div class="dropdown-menu lang-dropdown-menu">
+              <a href="/index.html" class="lang-link" data-lang="EN">English</a>
+              <a href="/fi/index.html" class="lang-link" data-lang="FI">Suomi</a>
+              <a href="/sv/index.html" class="lang-link" data-lang="SV">Svenska</a>
+              <a href="/no/index.html" class="lang-link" data-lang="NO">Norsk</a>
+              <a href="/fr/index.html" class="lang-link" data-lang="FR">Français</a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Mobile Menu Button -->
+        <div class="hamburger md:hidden" id="mobile-menu-btn">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+      
+      <!-- Mobile Menu -->
+      <div class="mobile-menu hidden mobile-nav">
+        <div class="p-6 space-y-4">
+          <div class="space-y-2">
+            <div class="font-medium text-glow-blue">Music Production</div>
+            <a href="/game-scoring.html" class="nav-link block pl-4">Game Scoring</a>
+            <a href="/anime-scoring.html" class="nav-link block pl-4">Anime/Animation Scoring</a>
+            <a href="https://appmuse-isekai.com/anime-scoring.html" class="nav-link block pl-4">Piano Accompaniment Track</a>
+          </div>
+          
+          <div class="space-y-2">
+            <div class="font-medium text-glow-blue">Education</div>
+            <a href="https://appmuse-isekai.com/blog.html" class="nav-link block pl-4">Composition Course</a>
+            <a href="https://appmuse-isekai.com/blog.html" class="nav-link block pl-4">Piano Course</a>
+            <a href="https://appmuse-isekai.com/blog.html" class="nav-link block pl-4">Hybrid</a>
+            <a href="/blog.html" class="nav-link block pl-4">Blog</a>
+          </div>
+          
+          <div class="space-y-2">
+            <div class="font-medium text-glow-blue">Performance</div>
+            <a href="/ambiance-performance.html" class="nav-link block pl-4">Ambiance Piano Performance</a>
+            <a href="/classical-performance.html" class="nav-link block pl-4">Classical Performance</a>
+            <!-- Conducting link removed -->
+          </div>
+          
+          <a href="/pricing.html" class="nav-link block">Pricing</a>
+          <a href="/about.html" class="nav-link block">About</a>
+          <a href="/contact.html" class="nav-link block">Contact</a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="min-h-screen flex items-center justify-center px-6 pt-20">
+      <div class="max-w-4xl mx-auto">
+        <div class="text-center mb-16 fade-in-element">
+          <h1 class="text-5xl md:text-6xl font-didot font-medium mb-6">
+            <span class="highlight-glow">Inquiry</span> <span class="glow-title">Discourse</span>
+          </h1>
+          <p class="text-lg opacity-70 hover:opacity-90 transition-opacity duration-300 italic notice-glow"> 
+            <br>With profound gratitude —<br>for considered thoughts and the generosity of insight shared.</p>
+        </div>
+
+        <div class="grid lg:grid-cols-2 gap-12">
+          <!-- Contact Information -->
+          <div class="glass-card p-8 fade-in-element">
+            <h2 class="text-2xl font-medium mb-6 glow-title">Contact</h2>
+            
+            <div class="space-y-6 mb-8">
+              <div class="flex items-start space-x-4">
+                <div class="w-6 h-6 text-glow-blue mt-1">
+                  <svg fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M1.5 8.67v8.58a3 3 0 003 3h15a3 3 0 003-3V8.67l-8.928 5.493a3 3 0 01-3.144 0L1.5 8.67z"/>
+                    <path d="M22.5 6.908V6.75a3 3 0 00-3-3h-15a3 3 0 00-3 3v.158l9.714 5.978a1.5 1.5 0 001.572 0L22.5 6.908z"/>
+                  </svg>
+                </div>
+                <div>
+                  <h3 class="font-medium mb-1">Email</h3>
+                  <button id="reveal-email" class="opacity-80 hover:opacity-100 cursor-pointer text-left">
+                    Click to reveal email
+                  </button>
+                  <p id="email-address" class="opacity-80 hidden">MuseChezApp@gmail.com</p>
+                </div>
+              </div>
+              
+              <div class="flex items-start space-x-4">
+                <div class="w-6 h-6 text-glow-blue mt-1">
+                  <svg fill="currentColor" viewBox="0 0 24 24">
+                    <path fill-rule="evenodd" d="M1.5 4.5a3 3 0 013-3h1.372c.86 0 1.61.586 1.819 1.42l1.105 4.423a1.875 1.875 0 01-.694 1.955l-1.293.97c-.135.101-.164.249-.126.352a11.285 11.285 0 006.697 6.697c.103.038.25.009.352-.126l.97-1.293a1.875 1.875 0 011.955-.694l4.423 1.105c.834.209 1.42.959 1.42 1.82V19.5a3 3 0 01-3 3h-2.25C8.552 22.5 1.5 15.448 1.5 6.75V4.5z" clip-rule="evenodd"/>
+                  </svg>
+                </div>
+                <div>
+                  <h3 class="font-medium mb-1">Phone</h3>
+                  <button id="reveal-phone" class="opacity-80 hover:opacity-100 cursor-pointer text-left">
+                    Click to reveal phone
+                  </button>
+                  <p id="phone-number" class="opacity-80 hidden">+358 41 715 6561</p>
+                </div>
+              </div>
+              
+              <div class="flex items-start space-x-4">
+                <div class="w-6 h-6 text-glow-blue mt-1">
+                  <svg fill="currentColor" viewBox="0 0 24 24">
+                    <path fill-rule="evenodd" d="M11.54 22.351l.07.04.028.016a.76.76 0 00.723 0l.028-.015.071-.041a16.975 16.975 0 001.144-.742 19.58 19.58 0 002.683-2.282c1.944-1.99 3.963-4.98 3.963-8.827a8.25 8.25 0 00-16.5 0c0 3.846 2.02 6.837 3.963 8.827a19.58 19.58 0 002.682 2.282 16.975 16.975 0 001.145.742zM12 13.5a3 3 0 100-6 3 3 0 000 6z" clip-rule="evenodd"/>
+                  </svg>
+                </div>
+                <div>
+                  <h3 class="font-medium mb-1">Location</h3>
+                  <button id="reveal-address" class="opacity-80 hover:opacity-100 cursor-pointer text-left">
+                    Click to reveal address
+                  </button>
+                  <p id="address-details" class="opacity-80 hidden">Following the first consultation. /ᐠ ◜𖥦 ◝ マ<br>Jyväskylä, 40100, Finland</p>
+                </div>
+              </div>
+            </div>
+            
+            <div>
+              <h3 class="font-medium mb-4 glow">Response Time</h3>
+              <p class="font-didot italic text-xs mt-1 notice-glow">
+                All enquiries are typically addressed within 24 hours on business days.
+                Should the matter be of an urgent nature, kindly indicate this in the message, and every effort will be made to accommodate the request accordingly.
+              </p>
+            </div>
+            
+            <div class="mt-6">
+              <h3 class="font-medium mb-4 glow">Before Calling  <span class="font-didot text-xs mt-1 notice-glow"> /ᐠ ◜𖥦 ◝ マ</span> </h3> 
+              <p class="font-didot italic text-xs mt-1 notice-glow">
+                Due to information security protocols related to music production work, initial contact is kindly requested via SMS. Please include your email address within the message.
+                <br>Kindly note that direct calls may be filtered by the security system. Your understanding is sincerely appreciated.
+              </p>
+            </div>
+          </div>
+          
+          <!-- Contact Form -->
+          <div class="glass-card p-8 fade-in-element">
+            <h2 class="text-2xl font-medium mb-6 glow-title">Send a Message</h2>
+            
+            <form class="space-y-6" id="contact-form">
+              <div class="grid md:grid-cols-2 gap-4">
+                <div>
+                  <label for="firstName" class="block text-sm font-medium mb-2">First Name *</label>
+                  <input type="text" id="firstName" name="firstName" class="input-field" required>
+                </div>
+                <div>
+                  <label for="lastName" class="block text-sm font-medium mb-2">Last Name</label>
+                  <input type="text" id="lastName" name="lastName" class="input-field">
+                </div>
+              </div>
+              
+              <div>
+                <label for="email" class="block text-sm font-medium mb-2">Email Address *</label>
+                <input type="email" id="email" name="email" class="input-field" required>
+              </div>
+              
+              <div>
+                <label for="service" class="block text-sm font-medium mb-2">Service Interest</label>
+                <select id="service" name="service" class="input-field font-didot">
+                  <option value="">Select a service /ᐠ •ヮ• マ Ⳋ </option>
+                  <option value="game-scoring">Game Scoring</option>
+                  <option value="anime-scoring">Anime/Animation Scoring</option>
+                  <option value="piano-accompaniment">Piano Accompaniment</option>
+                  <option value="composition-course">Composition Course</option>
+                  <option value="piano-course">Piano Course</option>
+                  <option value="hybrid-course">Hybrid Course</option>
+                  <option value="performance">Performance</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+              
+              <div>
+                <label for="message" class="block text-sm font-medium mb-2">Message *</label>
+                <textarea id="message" name="message" rows="5" class="input-field" placeholder="Tell us about your project or questions..." required></textarea>
+              </div>
+              
+              <!-- Simple CAPTCHA -->
+              <div>
+                <label for="captcha" class="block text-sm font-medium mb-2">Security Check: What is 5 + 3? *</label>
+                <input type="number" id="captcha" name="captcha" class="input-field" required>
+              </div>
+              
+              <button type="submit" class="btn-primary w-full">Send Message</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 px-6 border-t border-white/10">
+      <div class="max-w-4xl mx-auto">
+        <div class="text-center mb-8">
+          <p class="font-signature text-2xl highlight-text">Creating musical magic, one note at a time</p>
+        </div>
+        <div class="text-center mb-8">
+          <p>
+            <a href="https://appmuse-isekai.com/contact.html" class="highlight-glow text-xl md:text-2xl opacity-80 mb-8 leading-relaxed max-w-2xl mx-auto">
+              |&emsp; Contact&emsp; |
+            </a>
+          </p>
+        </div>
+        <div class="text-center opacity-60 text-sm">
+          <p>&copy; 2025 AppMuse. All rights reserved. | <a href="#" class="hover:text-glow-blue transition-colors">Privacy Policy</a></p>
+        </div>
+      </div>
+    </footer>
+
+    <script type="module" src="./main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,778 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+/* Custom CSS Variables for Theme System */
+:root {
+  --bg-dark: #2E003F;
+  --text-dark: #FFFFFF;
+  --glow-blue: #31CFFF;
+  
+  --bg-light: #FFFFFF;
+  --text-light: #2E003F;
+  --glow-blue-light: #2E003F; /* no glow in light mode */
+  
+  /* Sakura colors updated to new theme */
+  --sakura: #31CFFF;
+  --sakura-light: #5DD9FF;
+}
+
+/* Base theme styles */
+body {
+  background: linear-gradient(135deg, var(--bg-dark) 0%, #1A0025 100%);
+  color: var(--text-dark);
+  transition: background 0.4s ease, color 0.4s ease;
+  position: relative;
+}
+
+/* Background image support */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('/assets/images/New Logo Centralised-min Circle.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.25;
+  z-index: -1;
+  pointer-events: none;
+}
+
+body.light {
+  background: linear-gradient(135deg, var(--bg-light) 0%, #f8f9fa 100%);
+  color: var(--text-light);
+}
+
+body.light::before {
+  display: none;
+}
+
+/* Logo styling */
+.logo-glow {
+  box-shadow:
+    0 0 4px 2px #a259ff,   /* purple glow, less blur and spread */
+    0 0 8px 2px #fff;      /* white glow, less blur and spread */
+  border-radius: 50%;
+}
+
+.logo-shift-left {
+  position: relative;
+  left: -12px; /* Adjust as needed */
+}
+
+body:not(.light) .notice-glow {
+  color: #fff;
+  text-shadow: 0 0 4px #fff, 0 0 8px #fff;
+  opacity: 0.85;
+}
+
+/* Only apply highlight-glow in dark mode and non-hover */
+body:not(.light) .highlight-glow {
+  color: #fff;
+  text-shadow: 0 0 6px #dd00ff, 0 0 10px #dd00ff;
+  opacity: 0.85;
+}
+
+/* Remove highlight-glow effect on hover, so nav-link:hover takes over */
+body:not(.light) .highlight-glow.nav-link:hover {
+  color: var(--glow-blue); /* or your menu hover color */
+  text-shadow: 0 0 6px var(--glow-blue);
+  opacity: 1;
+}
+
+/* Glass card theming */
+.glass-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 1rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+body.light .glass-card {
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(46, 0, 63, 0.1);
+  box-shadow: 0 8px 32px rgba(46, 0, 63, 0.1);
+}
+
+.glass-card:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+  transform: translateY(-4px);
+}
+
+body.light .glass-card:hover {
+  background: rgba(255, 255, 255, 0.95);
+  border-color: rgba(46, 0, 63, 0.2);
+  box-shadow: 0 12px 40px rgba(46, 0, 63, 0.15);
+}
+
+/* Enhanced effects Glass card by Claude */
+.featured-image-container {
+  overflow: hidden;
+  border-radius: 0.5rem;
+}
+
+.featured-image {
+  transition: all 0.3s ease;
+  filter: brightness(0.9);
+}
+
+.glass-card:hover .featured-image {
+  filter: brightness(1);
+  transform: scale(1.02);
+}
+
+.glass-card {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glass-card:hover {
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+
+
+
+/* Glow effects - only in dark mode */
+.glow, .glow-title, .highlight-text, .branding-word {
+  color: var(--glow-blue);
+  text-shadow: 0 0 8px var(--glow-blue);
+  transition: all 0.3s ease;
+}
+
+body.light .glow, 
+body.light .glow-title, 
+body.light .highlight-text, 
+body.light .branding-word {
+  color: var(--text-light);
+  text-shadow: none;
+}
+
+/* Button styles with theme support */
+.btn-primary {
+  background: var(--glow-blue);
+  color: var(--bg-dark);
+  padding: 0.75rem 2rem;
+  border-radius: 9999px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+  backdrop-filter: blur(12px);
+}
+
+.btn-primary:hover {
+  background: var(--sakura-light);
+  transform: scale(1.05) translateY(-2px);
+  box-shadow: 0 4px 20px rgba(49, 207, 255, 0.4);
+}
+
+/* Dark mode hover glow for buttons */
+body:not(.light) .btn-primary:hover {
+  text-shadow: 0 0 6px var(--glow-blue);
+  box-shadow: 0 4px 20px rgba(49, 207, 255, 0.6), 0 0 12px var(--glow-blue);
+}
+
+.btn-secondary {
+  border: 2px solid var(--glow-blue);
+  color: var(--glow-blue);
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+  padding: 0.75rem 2rem;
+  border-radius: 9999px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+body.light .btn-secondary {
+  background: rgba(255, 255, 255, 0.8);
+  color: var(--text-light);
+  border-color: var(--text-light);
+}
+
+.btn-secondary:hover {
+  background: var(--glow-blue);
+  color: var(--bg-dark);
+  transform: scale(1.05) translateY(-2px);
+}
+
+body.light .btn-secondary:hover {
+  background: var(--text-light);
+  color: var(--bg-light);
+}
+
+/* Navigation styles with dropdown support */
+nav {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+body.light nav {
+  background: rgba(255, 255, 255, 0.9);
+  border-bottom-color: rgba(46, 0, 63, 0.1);
+}
+
+.nav-link {
+  color: rgba(255, 255, 255, 0.8);
+  transition: all 0.3s ease;
+  font-weight: 500;
+  text-decoration: none;
+  position: relative;
+}
+
+body.light .nav-link {
+  color: rgba(46, 0, 63, 0.8);
+}
+
+.nav-link:hover {
+  color: var(--glow-blue);
+}
+
+/* Dark mode glow for links */
+body:not(.light) .nav-link:hover {
+  text-shadow: 0 0 6px var(--glow-blue);
+}
+
+body.light .nav-link:hover {
+  text-decoration: underline;
+}
+
+/* Dropdown menu styles */
+.dropdown {
+  position: relative;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 0.5rem;
+  min-width: 200px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: all 0.3s ease;
+  z-index: 50;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+body.light .dropdown-menu {
+  background: rgba(255, 255, 255, 0.95);
+  border-color: rgba(46, 0, 63, 0.1);
+  box-shadow: 0 8px 32px rgba(46, 0, 63, 0.1);
+}
+
+.dropdown:hover .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.dropdown-menu a {
+  display: block;
+  padding: 0.75rem 1rem;
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border-radius: 0.25rem;
+  margin: 0.25rem;
+}
+
+body.light .dropdown-menu a {
+  color: rgba(46, 0, 63, 0.8);
+}
+
+.dropdown-menu a:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--glow-blue);
+}
+
+body.light .dropdown-menu a:hover {
+  background: rgba(46, 0, 63, 0.1);
+  color: var(--text-light);
+}
+
+/* Dark mode glow for dropdown items */
+body:not(.light) .dropdown-menu a:hover {
+  text-shadow: 0 0 6px var(--glow-blue);
+}
+
+/* Language dropdown styles */
+.lang-dropdown-btn {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: var(--text-dark);
+  backdrop-filter: blur(12px);
+}
+
+body.light .lang-dropdown-btn {
+  background: rgba(46, 0, 63, 0.1);
+  border-color: rgba(46, 0, 63, 0.2);
+  color: var(--text-light);
+}
+
+.lang-dropdown-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+body.light .lang-dropdown-btn:hover {
+  background: rgba(46, 0, 63, 0.2);
+}
+
+.lang-dropdown-menu {
+  right: 0;
+  left: auto;
+  min-width: 120px;
+}
+
+/* Theme toggle button */
+#theme-switch {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: var(--text-dark);
+  backdrop-filter: blur(12px);
+}
+
+body.light #theme-switch {
+  background: rgba(46, 0, 63, 0.1);
+  border-color: rgba(46, 0, 63, 0.2);
+  color: var(--text-light);
+}
+
+#theme-switch:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.1);
+}
+
+body.light #theme-switch:hover {
+  background: rgba(46, 0, 63, 0.2);
+}
+
+/* Dark mode glow for theme switch */
+body:not(.light) #theme-switch:hover {
+  box-shadow: 0 0 12px var(--glow-blue);
+}
+
+/* Language switcher theming */
+.lang-link {
+  color: rgba(255, 255, 255, 0.6);
+  transition: all 0.3s ease;
+}
+
+body.light .lang-link {
+  color: rgba(46, 0, 63, 0.6);
+}
+
+.lang-link:hover,
+.lang-link.active {
+  color: var(--glow-blue);
+}
+
+body.light .lang-link:hover,
+body.light .lang-link.active {
+  color: var(--text-light);
+}
+
+/* Input field theming with glassmorphism */
+.input-field {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 0.5rem;
+  color: var(--text-dark);
+  backdrop-filter: blur(12px);
+  transition: all 0.3s ease;
+}
+
+body.light .input-field {
+  background: rgba(255, 255, 255, 0.9);
+  border-color: rgba(46, 0, 63, 0.2);
+  color: var(--text-light);
+}
+
+.input-field::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+body.light .input-field::placeholder {
+  color: rgba(46, 0, 63, 0.5);
+}
+
+.input-field:focus {
+  outline: none;
+  border-color: var(--glow-blue);
+  box-shadow: 0 0 0 2px rgba(49, 207, 255, 0.2);
+}
+
+/* Dark mode glow for focused inputs */
+body:not(.light) .input-field:focus {
+  box-shadow: 0 0 0 2px rgba(49, 207, 255, 0.2), 0 0 8px var(--glow-blue);
+}
+
+body.light .input-field:focus {
+  border-color: var(--text-light);
+  box-shadow: 0 0 0 2px rgba(46, 0, 63, 0.2);
+}
+
+/* Icon theming */
+.icon {
+  width: 1.5rem;
+  height: 1.5rem;
+  opacity: 0.7;
+  transition: all 0.3s ease;
+  color: var(--glow-blue);
+}
+
+body.light .icon {
+  color: var(--text-light);
+}
+
+.icon:hover {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+/* Dark mode glow for icons */
+body:not(.light) .icon:hover {
+  filter: drop-shadow(0 0 4px var(--glow-blue));
+}
+
+/* Newsletter section styling */
+.newsletter-section {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 1rem;
+  padding: 2rem;
+  margin: 2rem 0;
+}
+
+body.light .newsletter-section {
+  background: rgba(255, 255, 255, 0.8);
+  border-color: rgba(46, 0, 63, 0.1);
+}
+
+/* Social media section styling */
+.social-section {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 1rem;
+  padding: 2rem;
+  margin: 2rem 0;
+}
+
+body.light .social-section {
+  background: rgba(255, 255, 255, 0.8);
+  border-color: rgba(46, 0, 63, 0.1);
+}
+
+/* Pricing table styles */
+.pricing-table {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 1rem;
+}
+
+body.light .pricing-table {
+  background: rgba(255, 255, 255, 0.8);
+  border-color: rgba(46, 0, 63, 0.1);
+}
+
+.pricing-card {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+body.light .pricing-card {
+  background: rgba(255, 255, 255, 0.6);
+  border-color: rgba(46, 0, 63, 0.08);
+}
+
+.pricing-card:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-4px);
+}
+
+body.light .pricing-card:hover {
+  background: rgba(255, 255, 255, 0.9);
+  border-color: rgba(46, 0, 63, 0.2);
+}
+
+/* Animation classes */
+.fade-in-element {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+}
+
+.fade-in-element.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Card tilt effect */
+.glass-card {
+  transform-style: preserve-3d;
+}
+
+/* Mobile menu theming */
+.mobile-menu {
+  background: #2E003F;
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  opacity: 0.8;
+}
+
+body.light .mobile-menu {
+  background: rgba(255, 255, 255, 0.95);
+  border-bottom-color: rgba(46, 0, 63, 0.1);
+}
+
+/* Typography */
+.font-didot {
+  font-family: "Didot", "Playfair Display", serif;
+}
+
+.font-signature {
+  font-family: "Snell Roundhand", "Segoe Script", cursive;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .glass-card {
+    margin: 0 1rem;
+  }
+
+  .nav-link {
+    display: block;
+    padding: 0.5rem 0;
+  }
+
+  /* Dropdown menu styles */
+  .dropdown-menu {
+    position: absolute;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    background: white; /* Add a background for better visibility */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 0.25rem;
+    z-index: 50;
+  }
+
+  .dropdown-menu.open {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  .dropdown-menu a {
+    padding-left: 2rem;
+    display: block;
+    padding: 0.5rem 1rem;
+    color: #333;
+    text-decoration: none;
+  }
+
+  .dropdown-menu a:hover {
+    background-color: #f0f0f0;
+  }
+
+  /* Mobile menu transitions */
+  .mobile-menu {
+    position: fixed;
+    top: 5rem;
+    left: 0;
+    right: 0;
+    transform: translateY(-100%);
+    transition: transform 0.3s ease;
+    z-index: 40;
+  }
+
+  .mobile-menu.visible {
+    transform: translateY(0);
+  }
+
+  .mobile-menu.hidden {
+    transform: translateY(-100%);
+  }
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar theming */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+body.light ::-webkit-scrollbar-track {
+  background: rgba(46, 0, 63, 0.1);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(49, 207, 255, 0.5);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(49, 207, 255, 0.8);
+}
+
+/* Focus states for accessibility */
+.btn-primary:focus,
+.btn-secondary:focus,
+.input-field:focus,
+.nav-link:focus,
+.lang-link:focus,
+#theme-switch:focus {
+  outline: 2px solid rgba(49, 207, 255, 0.5);
+  outline-offset: 2px;
+}
+
+/* Mobile menu transitions */
+.mobile-menu {
+  position: fixed;
+  top: 5rem;
+  left: 0;
+  right: 0;
+  transform: translateY(-100%);
+  transition: transform 0.3s ease;
+  z-index: 40;
+}
+
+.mobile-menu.visible {
+  transform: translateY(0);
+}
+
+.mobile-menu.hidden {
+  transform: translateY(-100%);
+}
+
+/* Hamburger menu styles */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  padding: 0.5rem;
+}
+
+.hamburger span {
+  width: 25px;
+  height: 3px;
+  background: var(--text-dark);
+  margin: 3px 0;
+  transition: 0.3s;
+  border-radius: 2px;
+}
+
+body.light .hamburger span {
+  background: var(--text-light);
+}
+
+@media (max-width: 768px) {
+  .hamburger {
+    display: flex;
+  }
+  
+  .desktop-nav {
+    display: none;
+  }
+}
+
+
+/* For ambiance-performance.html profile section */
+.section-ambiance-profile {
+  min-height: 100vh; 
+  position: relative; 
+}
+
+/* Specific background styling for the ambiance-performance page's body */
+body.ambiance-page-background {
+  background-image: url('/assets/images/Ambiance Performance Profile for site.002.png'); /* Ensure this is your desired image path */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed; 
+}
+
+/* Overlay for the ambiance page - initially transparent */
+body.ambiance-page-background::before {
+  content: ''; 
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: linear-gradient(to bottom, 
+  transparent 5%,rgba(46, 0, 63, 0.9) 25%, /* Start becoming dark fairly quickly */
+  rgba(46, 0, 63, 0.9) 100% /* Solid dark from 25% to the bottom */
+);
+  z-index:-1; 
+  pointer-events: none;
+  opacity: 0; /* Initially transparent */
+  transition: opacity 0.5s ease-in-out; 
+}
+
+/* When JS adds this class, the overlay becomes visible */
+body.ambiance-page-background.gradient-overlay-active::before {
+  opacity: 1;
+}
+
+/* Light mode for the ambiance page's specific gradient overlay */
+body.ambiance-page-background.light::before {
+  background: linear-gradient(to bottom, 
+  transparent 5%, 
+  rgba(100, 100, 100, 0.6) 25%, /* Lighter but more solid shadow */
+  rgba(100, 100, 100, 0.6) 100%
+);/* Light grey shadow */
+  /* Opacity is handled by the base rule and the .gradient-overlay-active rule */
+}
+
+body.ambiance-page-background.light.gradient-overlay-active::before {
+  opacity: 1; 
+}
+
+/* This @media rule is likely for other things and should remain if it is */
+@media (min-width: 769px) {
+  .mobile-nav {
+    display: none;
+  }
+}

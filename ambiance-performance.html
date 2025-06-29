@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ambiance Piano Performance - AppMuse Isekai Piano</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
+    <!-- Social Sharing Meta Tags -->
+<meta property="og:title" content="Ambiance Piano Performance - AppMuse Isekai Piano" />
+<meta property="og:description" content="Immerse in ambiance aesthetics, where music meets memory, softly echoing in a forgotten bistro." />
+<meta property="og:image" content="https://appmuse-isekai.com/thumbnail.png" />
+<meta property="og:url" content="https://appmuse-isekai.com/ambiance-performance.html" />
+<meta property="og:type" content="website" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Ambiance Piano Performance - AppMuse Isekai Piano" />
+<meta name="twitter:description" content="Immerse in ambiance aesthetics, where music meets memory, softly echoing in a forgotten bistro." />
+<meta name="twitter:image" content="https://appmuse-isekai.com/thumbnail.png" />
+</head>
+
+<body class="font-didot min-h-screen pt-20 ambiance-page-background"> <!-- Ensure this class is present -->
+    <!-- Navigation (Copied from index.html) -->
+    <nav class="fixed top-0 left-0 right-0 z-50">
+        <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+            <!-- Logo -->
+            <div class="flex items-center">
+                <img 
+                    src="/assets/images/New Logo Centralised-min Circle.png" 
+                    alt="AppMuse Logo"
+                    class="logo-img logo-glow mr-2 logo-shift-left"
+                    style="max-width: 40px; height: auto;"
+                />
+                <a href="/" class="font-didot text-2xl font-medium nav-link highlight-glow" style="text-decoration: none;">
+                    AppMuse
+                </a>
+            </div>
+            
+         <!-- Desktop Navigation -->
+         <div class="hidden md:flex items-center space-x-8 desktop-nav">
+            <div class="dropdown">
+              <a href="#" class="nav-link">Music Production</a>
+              <div class="dropdown-menu">
+                <a href="/game-scoring.html">Game Scoring</a>
+                <a href="/anime-scoring.html">Anime/Animation Scoring</a>
+                <a href="https://appmuse-isekai.com/anime-scoring.html">Piano Accompaniment Track</a>
+              </div>
+            </div>
+            
+            <div class="dropdown">
+              <a href="#" class="nav-link">Education</a>
+              <div class="dropdown-menu">
+                <a href="https://appmuse-isekai.com/blog.html">Composition Course</a>
+                <a href="https://appmuse-isekai.com/blog.html">Piano Course</a>
+                <a href="https://appmuse-isekai.com/blog.html">Hybrid</a>
+                <a href="/blog.html">Blog</a>
+              </div>
+            </div>
+            
+            <div class="dropdown">
+              <a href="#" class="nav-link">Performance</a>
+              <div class="dropdown-menu">
+                <a href="/ambiance-performance.html">Ambiance Piano Performance</a>
+                <a href="/classical-performance.html">Classical Performance</a>
+              </div>
+            </div>
+            
+            <a href="/pricing.html" class="nav-link">Pricing</a>
+            <a href="/about.html" class="nav-link">About</a>
+            <a href="/contact.html" class="nav-link">Contact</a>
+          </div>
+          
+          <!-- Theme Toggle & Language Switcher -->
+          <div class="flex items-center space-x-4">
+            <!-- Theme Toggle Button -->
+            <button id="theme-switch" title="Toggle theme">
+              <svg class="w-5 h-5 sun-icon" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 2.25a.75.75 0 01.75.75v2.25a.75.75 0 01-1.5 0V3a.75.75 0 01.75-.75zM7.5 12a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM18.894 6.166a.75.75 0 00-1.06-1.06l-1.591 1.59a.75.75 0 101.06 1.061l1.591-1.59zM21.75 12a.75.75 0 01-.75.75h-2.25a.75.75 0 010-1.5H21a.75.75 0 01.75.75zM17.834 18.894a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 10-1.061 1.06l1.59 1.591zM12 18a.75.75 0 01.75.75V21a.75.75 0 01-1.5 0v-2.25A.75.75 0 0112 18zM7.758 17.303a.75.75 0 00-1.061-1.06l-1.591 1.59a.75.75 0 001.06 1.061l1.591-1.59zM6 12a.75.75 0 01-.75.75H3a.75.75 0 010-1.5h2.25A.75.75 0 016 12zM6.697 7.757a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 00-1.061 1.06l1.59 1.591z"/>
+              </svg>
+              <svg class="w-5 h-5 moon-icon hidden" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M9.528 1.718a.75.75 0 01.162.819A8.97 8.97 0 009 6a9 9 0 009 9 8.97 8.97 0 003.463-.69.75.75 0 01.981.98 10.503 10.503 0 01-9.694 6.46c-5.799 0-10.5-4.701-10.5-10.5 0-4.368 2.667-8.112 6.46-9.694a.75.75 0 01.818.162z"/>
+              </svg>
+            </button>
+            
+            <!-- Language Switcher Dropdown -->
+            <div class="dropdown">
+              <button class="lang-dropdown-btn flex items-center space-x-1 text-sm">
+                <span id="current-lang">EN</span>
+                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/>
+                </svg>
+              </button>
+              <div class="dropdown-menu lang-dropdown-menu">
+                <a href="/index.html" class="lang-link" data-lang="EN">English</a>
+                <a href="/fi/index.html" class="lang-link" data-lang="FI">Suomi</a>
+                <a href="/sv/index.html" class="lang-link" data-lang="SV">Svenska</a>
+                <a href="/no/index.html" class="lang-link" data-lang="NO">Norsk</a>
+                <a href="/fr/index.html" class="lang-link" data-lang="FR">Français</a>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Mobile Menu Button -->
+          <div class="hamburger md:hidden" id="mobile-menu-btn">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div class="mobile-menu hidden mobile-nav">
+          <div class="p-6 space-y-4">
+            <div class="space-y-2">
+              <div class="font-medium text-glow-blue">Music Production</div>
+              <a href="/game-scoring.html" class="nav-link block pl-4">Game Scoring</a>
+              <a href="/anime-scoring.html" class="nav-link block pl-4">Anime/Animation Scoring</a>
+              <a href="https://appmuse-isekai.com/anime-scoring.html" class="nav-link block pl-4">Piano Accompaniment Track</a>
+            </div>
+            
+            <div class="space-y-2">
+              <div class="font-medium text-glow-blue">Education</div>
+              <a href="https://appmuse-isekai.com/blog.html" class="nav-link block pl-4">Composition Course</a>
+              <a href="https://appmuse-isekai.com/blog.html" class="nav-link block pl-4">Piano Course</a>
+              <a href="https://appmuse-isekai.com/blog.html" class="nav-link block pl-4">Hybrid</a>
+              <a href="/blog.html" class="nav-link block pl-4">Blog</a>
+            </div>
+            
+            <div class="space-y-2">
+              <div class="font-medium text-glow-blue">Performance</div>
+              <a href="/ambiance-performance.html" class="nav-link block pl-4">Ambiance Piano Performance</a>
+              <a href="/classical-performance.html" class="nav-link block pl-4">Classical Performance</a>
+              <!-- Conducting link removed -->
+            </div>
+            
+            <a href="/pricing.html" class="nav-link block">Pricing</a>
+            <a href="/about.html" class="nav-link block">About</a>
+            <a href="/contact.html" class="nav-link block">Contact</a>
+          </div>
+        </div>
+      </nav>
+
+    <!-- Profile Section -->
+    <section id="profile" class="section-ambiance-profile flex flex-col justify-end items-center py-16 px-8 fade-in-element">
+        <div class="profile-content relative z-20 text-center max-w-4xl w-full"> <!-- Added w-full for consistency -->
+            <h2 class="text-5xl font-didot font-medium mb-6 highlight-glow">AppaLV</h2>
+            <!-- <p class="moreLoading hidden"> Hidden as per original CSS, can be removed if not needed
+                <img src="//www.sonymusic.co.jp/common/image/utils/moreLoader.png" width="300" height="30" alt="">
+            </p> -->
+            <div class="profile_add glass-card p-8 mb-8 text-lg italic notice-glow"> <!-- Tailwind text-lg for font-size: 1.125rem -->
+                <p>—&ensp;Performative Aesthetic&ensp;—<br><br>“Missed tenderness. Forgotten pleasures. Time slipping softly through the fingers.<br>
+                As long as the soul is willing to turn back,<br>a humble bistro always awaits — to console sorrows and soothe regret.”<br><br>Bistro vers l’Âme</p>
+                <!-- Scroll icon removed as per user request -->
+            </div>
+        </div>
+    </section>
+  
+
+    <!-- Brief Introduction Content -->
+    <section class="py-20 px-6">
+        <div class="max-w-4xl mx-auto">
+          <div class="newsletter-section fade-in-element">
+            <p class="text-lg opacity-80 mb-8 max-w-2xl mx-auto leading-relaxed notice-glow text-center">
+                <br><br>ᛤ<span class="text-lg opacity-80 mb-8 max-w-2xl mx-auto leading-relaxed italic notice-glow text-center">&emsp;&emsp;Exquisite Ambiance Piano Performance&emsp;&emsp;</span>ᛤ
+            </p>
+            <h2 class="highlight-glow text-3xl md:text-4xl font-didot font-medium mb-6 text-center">
+                <br>| A Brief <span class="glow-title">Introduction |</span>
+            </h2>
+            <p class="text-lg opacity-80 mb-8 max-w-2xl mx-auto leading-relaxed italic notice-glow text-center">
+                <br><br>When one thinks of the art of Paris, Impressionism and history are often the first images that come to mind. In music, Debussy and Liszt stand like two luminous ambassadors of these enduring legacies.
+
+                <br><br>The canvas of my ambient piano work is painted with hues of Debussy, Liszt, select preludes by Bach, and a subtle inflection of jazz. With more than ten years of experience as an ambient pianist, I have had the privilege of performing in refined spaces — hotels, cafés, and bars — offering listeners a musical experience that is both immersive and delicately unobtrusive.
+                
+                <br><br>Though my formal training in piano and composition was completed at a traditional conservatoire, my approach is shaped by an attentiveness to setting and mood. I favour a repertoire that complements the quiet rhythm of dining and conversation, avoiding the more thunderous dramatics of certain Beethoven sonatas or Chopin études — which, while masterful, may overwhelm rather than accompany.
+                
+                <br><br>For me, the highest art in ambient performance lies in the balance between silence and presence — in music that lends grace to the murmur of conversation, and harmonises with the scent of wine.
+                <br> &emsp;
+            </p>
+            
+           
+          </div>
+        </div>
+      </section>
+
+
+<!-- Soul's Alchemy Section (DEMO Section) -->
+<section class="py-20 px-6">
+    <div class="max-w-4xl mx-auto">
+        <div class="social-section fade-in-element"> 
+            <h2 class="text-3xl md:text-4xl font-didot font-medium mb-6 text-center">
+                <span class="glow-title">DÉ</span><span class="highlight-glow">MO</span>
+            </h2>
+            <p class="text-lg opacity-80 mb-8 text-center max-w-2xl mx-auto leading-relaxed notice-glow">
+                Exquisite Ambiance Piano Performance
+            </p>
+            <div class="grid md:grid-cols-1 gap-6 mb-8">
+                <a href="https://appalv.bandcamp.com/album/elegantia-in-crepusculo-suite-pour-piano" target="_blank" class="glass-card p-6 cursor-pointer hover:bg-white/[0.12] transition-all duration-300 transform hover:scale-105 hover:shadow-2xl">
+                    <div class="text-center">
+                        <h3 class="font-signature text-lg mb-4 glow-title"></h3>
+                        <div class="featured-image-container mb-4 flex justify-center">
+                            <img src="/assets/images/Image for Site Thumbnail 720.001.png" alt="soundtrack anime music anison composition dining elegant game soundtrack jazzy neo-classical piano poem refined suite wine Finland" class="featured-image w-64 h-64 object-cover rounded-lg opacity-90 hover:opacity-100 transition-opacity duration-300" style="box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);">
+                        </div>
+                        <p class="text-sm opacity-70 hover:opacity-90 transition-opacity duration-300 italic notice-glow">
+                            Elegantia in Crepusculo<br> Suite pour Piano
+                        </p>
+                    </div>
+                </a>
+            </div>
+            <div class="grid md:grid-cols-2 gap-6 mb-8">
+                <a href="https://appalv.bandcamp.com/track/bistro-vers-l-me-i" target="_blank" class="glass-card p-6 cursor-pointer hover:bg-white/[0.12] transition-all duration-300 transform hover:scale-105 hover:shadow-2xl">
+                    <div class="text-center">
+                        <h3 class="font-signature text-lg mb-4 glow-title"></h3>
+                        <div class="featured-image-container mb-4 flex justify-center">
+                            <img src="/assets/images/Image for Site Thumbnail 720.002.png" alt="cafeteria soundtrack anime music anison bistro composition dining game soundtrack jazzy lonely emotional music neo-classical piano wine Finland" class="featured-image w-64 h-64 object-cover rounded-lg opacity-90 hover:opacity-100 transition-opacity duration-300" style="box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);">
+                        </div>
+                        <p class="text-sm opacity-70 hover:opacity-90 transition-opacity duration-300 italic notice-glow">
+                            Bistro vers l'Âme - I<br>Bon Appétit
+                        </p>
+                    </div>
+                </a>
+                <a href="https://appalv.bandcamp.com/track/reflet-du-moonlight-dans-le-vin-rouge" target="_blank" class="glass-card p-6 cursor-pointer hover:bg-white/[0.12] transition-all duration-300 transform hover:scale-105 hover:shadow-2xl">
+                    <div class="text-center">
+                        <h3 class="font-signature text-lg mb-4 glow-title"></h3>
+                        <div class="featured-image-container mb-4 flex justify-center">
+                            <img src="/assets/images/3-4 Image for Site Thumbnail 720.002.png" alt="soundtrack steinway anime music anison classical game soundtrack jazz neo-classical piano restaurant wine Finland" class="featured-image w-64 h-64 object-cover rounded-lg opacity-90 hover:opacity-100 transition-opacity duration-300" style="box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);">
+                        </div>
+                        <p class="text-sm opacity-70 hover:opacity-90 transition-opacity duration-300 italic notice-glow">
+                            Reflet du Moonlight<br> dans le vin rouge
+                        </p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Offering Section Content-->
+<section class="py-20 px-6">
+    <div class="max-w-4xl mx-auto">
+      <div class="newsletter-section fade-in-element">
+        <p class="text-lg opacity-80 mb-8 max-w-2xl mx-auto leading-relaxed notice-glow text-center">
+            <br><br>ᛤ<span class="text-lg opacity-80 mb-8 max-w-2xl mx-auto leading-relaxed italic notice-glow text-center">&emsp;&emsp;Offering&emsp;&emsp;</span>ᛤ
+        </p>
+        <h2 class="highlight-glow text-3xl md:text-4xl font-didot font-medium mb-6 text-center">
+            <br>| For Your Esteemed <span class="glow-title"> Establishment |</span> <br> &emsp;
+        </h2>
+        <p class="text-lg opacity-80 mb-8 max-w-2xl mx-auto leading-relaxed italic notice-glow text-center">
+            Hearing — <br>the first sense to arise, the last to fade. <br> &emsp;
+        </p>
+        <div class="max-w-4xl mx-auto">
+            <div class="grid md:grid-cols-1 gap-6 mb-8">
+                <div class="glass-card p-6 fade-in-element">
+                    <h3 class="text-2xl font-medium mb-4 glow-title text-center">Distinguished Venue</h3>
+                    <p class="opacity-80 leading-relaxed text-center">
+                       Ideal for establishments — hotels, restaurants, and distinguished cafés — <br>Seeking to elevate the dining experience with a musical presence attuned to <br>Refined, Minimalist Sensibilities.
+                    </p>
+                  </div>
+            <div class="grid md:grid-cols-2 gap-6 mb-8">
+               <div class="glass-card p-6 fade-in-element">
+                   <h3 class="text-2xl font-medium mb-4 glow-title text-center">Aesthetic</h3>
+                   <p class="opacity-80 leading-relaxed text-center">
+                    A fusion of classical repertoire with elements of jazz and film music. <br><br>Refined Impressionism, calm introspection, bittersweet tonality, <br><br>Meditative Pacing, and Nostalgic Hues.
+                   </p>
+                 </div>
+               
+               <div class="glass-card p-6 fade-in-element">
+                 <h3 class="text-2xl font-medium mb-4 glow-title text-center">Service Coverage — Region</h3>
+                 <p class="opacity-80 leading-relaxed text-center">
+                    <br><br>Engagements available across Nordic cities, with travel accommodated for reserved events.
+                 </p>
+               </div>
+             </div>
+             <p class="text-lg opacity-80 mb-8 max-w-2xl mx-auto leading-relaxed italic notice-glow text-center">
+                <br> Music — <br>unseen, intangible, yet the very soul of ambience.
+            </p>
+        </div>
+      </div>
+    </div>
+</section>
+
+
+
+
+
+    <!-- Footer (Copied from index.html for consistency) -->
+    <footer class="py-12 px-6 border-t border-white/10">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-8">
+                <p class="font-signature text-2xl highlight-text">Isekai Dining</p>
+            </div>
+            <div class="text-center mb-8">
+                <p>
+                  <a href="https://appmuse-isekai.com/contact.html" class="highlight-glow text-xl md:text-2xl opacity-80 mb-8 leading-relaxed max-w-2xl mx-auto">
+                    |&emsp; Contact&emsp; |
+                  </a>
+                </p>
+              </div>
+            <div class="text-center opacity-60 text-sm">
+                <p>© 2025 AppMuse. All rights reserved. | <a href="#" class="hover:text-glow-blue transition-colors">Privacy Policy</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script type="module" src="./main.js"></script>
+</body>
+</html>
