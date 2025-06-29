@@ -15,7 +15,7 @@ class AppMuse {
     this.setupFormHandling();
     this.setupLanguageDropdown();
     this.setupContactSecurity();
-    this.setupAmbiancePageScrollEffects(); // Call the new method
+    this.setupAmbiancePageScrollEffects();
   }
 
   setupAmbiancePageScrollEffects() {
@@ -80,6 +80,26 @@ class AppMuse {
   setupLanguageDropdown() {
     const langLinks = document.querySelectorAll('.lang-link');
     const currentLangSpan = document.getElementById('current-lang');
+    const langDropdownBtn = document.querySelector('.lang-dropdown-btn');
+    const langDropdownMenu = document.querySelector('.lang-dropdown-menu');
+
+    // Language dropdown toggle for mobile
+    if (langDropdownBtn && langDropdownMenu) {
+      langDropdownBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        langDropdownMenu.classList.toggle('is-open');
+      });
+
+      // Close dropdown when clicking outside
+      document.addEventListener('click', (e) => {
+        if (!langDropdownMenu.contains(e.target) && !langDropdownBtn.contains(e.target)) {
+          langDropdownMenu.classList.remove('is-open');
+        }
+      });
+    }
+
+    // Language selection handling
     langLinks.forEach(link => {
       link.addEventListener('click', (e) => {
         const selectedLang = link.getAttribute('data-lang');
@@ -87,8 +107,15 @@ class AppMuse {
           currentLangSpan.textContent = selectedLang;
         }
         localStorage.setItem('selectedLanguage', selectedLang);
+        
+        // Close the dropdown after selection
+        if (langDropdownMenu) {
+          langDropdownMenu.classList.remove('is-open');
+        }
       });
     });
+
+    // Load saved language
     const savedLang = localStorage.getItem('selectedLanguage');
     if (savedLang && currentLangSpan) {
       currentLangSpan.textContent = savedLang;
@@ -149,7 +176,6 @@ class AppMuse {
         const centerY = rect.height / 2;
         const rotateX = (y - centerY) / centerY * -3;
         const rotateY = (x - centerX) / centerX * 3;
-        // Ensure this line uses actual backticks ` ` not escaped ones.
         card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-4px)`;
         card.style.transition = 'transform 0.2s ease-out';
         if (!document.body.classList.contains('light')) {
@@ -173,47 +199,44 @@ class AppMuse {
   setupMobileMenu() {
     const mobileMenuBtn = document.getElementById('mobile-menu-btn');
     const mobileMenu = document.querySelector('.mobile-menu');
-    const dropdownToggle = document.querySelector('.dropdown-toggle');
-    const dropdownMenu = document.querySelector('.dropdown-menu');
+    
     if (!mobileMenuBtn || !mobileMenu) return;
+
+    // Mobile menu toggle
     mobileMenuBtn.addEventListener('click', () => {
-      if (mobileMenu.classList.contains('hidden')) {
-        mobileMenu.classList.remove('hidden');
-        mobileMenu.classList.add('visible');
-        const spans = mobileMenuBtn.querySelectorAll('span');
-        spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
-        spans[1].style.opacity = '0';
-        spans[2].style.transform = 'rotate(-45deg) translate(7px, -6px)';
-      } else {
-        mobileMenu.classList.add('hidden');
-        mobileMenu.classList.remove('visible');
-        const spans = mobileMenuBtn.querySelectorAll('span');
-        spans[0].style.transform = 'none';
-        spans[1].style.opacity = '1';
-        spans[2].style.transform = 'none';
-      }
+      this._toggleMobileMenuState();
     });
+
+    // Close mobile menu when clicking on links
     const mobileLinks = mobileMenu.querySelectorAll('a');
     mobileLinks.forEach(link => {
       link.addEventListener('click', () => {
-        mobileMenu.classList.add('hidden');
-        mobileMenu.classList.remove('visible');
-        const spans = mobileMenuBtn.querySelectorAll('span');
-        spans[0].style.transform = 'none';
-        spans[1].style.opacity = '1';
-        spans[2].style.transform = 'none';
+        this._toggleMobileMenuState();
       });
     });
-    if (dropdownToggle && dropdownMenu) {
-      dropdownToggle.addEventListener('click', (e) => {
-        e.preventDefault();
-        dropdownMenu.classList.toggle('open');
-      });
-      document.addEventListener('click', (e) => {
-        if (!dropdownMenu.contains(e.target) && !dropdownToggle.contains(e.target)) {
-          dropdownMenu.classList.remove('open');
-        }
-      });
+  }
+
+  // Helper method to toggle mobile menu state
+  _toggleMobileMenuState() {
+    const mobileMenu = document.querySelector('.mobile-menu');
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    
+    if (!mobileMenu || !mobileMenuBtn) return;
+
+    if (mobileMenu.classList.contains('hidden')) {
+      mobileMenu.classList.remove('hidden');
+      mobileMenu.classList.add('visible');
+      const spans = mobileMenuBtn.querySelectorAll('span');
+      spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
+      spans[1].style.opacity = '0';
+      spans[2].style.transform = 'rotate(-45deg) translate(7px, -6px)';
+    } else {
+      mobileMenu.classList.add('hidden');
+      mobileMenu.classList.remove('visible');
+      const spans = mobileMenuBtn.querySelectorAll('span');
+      spans[0].style.transform = 'none';
+      spans[1].style.opacity = '1';
+      spans[2].style.transform = 'none';
     }
   }
 
@@ -364,7 +387,6 @@ class AppMuse {
     } else {
       typeClasses = isLight ? 'border-purple-600 text-purple-800 bg-purple-50' : 'border-blue-400 text-white bg-blue-900/20';
     }
-    // Ensure backticks are used here for the template literal
     notification.className = `fixed top-24 right-6 z-50 p-4 rounded-lg backdrop-blur-sm max-w-sm transform translate-x-full transition-transform duration-300 ${typeClasses}`;
     notification.textContent = message;
     document.body.appendChild(notification);
