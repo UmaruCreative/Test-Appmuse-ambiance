@@ -596,6 +596,10 @@ body.light .mobile-menu {
   .mobile-menu .space-y-2 > div.font-medium.text-glow-blue {
     font-weight: bold;
   }
+
+  .nav-link {
+    padding: 0.5rem 0;
+  }
 }
 
 /* Smooth scrolling */
@@ -693,6 +697,38 @@ body.ambiance-page-background.light::before {
 
 body.ambiance-page-background.light.gradient-overlay-active::before {
   opacity: 1; 
+}
+
+/* Custom scrollbar theming */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--glow-blue);
+  border-radius: 4px;
+  transition: background 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--sakura-light);
+}
+
+body.light ::-webkit-scrollbar-track {
+  background: rgba(46, 0, 63, 0.1);
+}
+
+body.light ::-webkit-scrollbar-thumb {
+  background: var(--text-light);
+}
+
+body.light ::-webkit-scrollbar-thumb:hover {
+  background: rgba(46, 0, 63, 0.8);
 }
 
 /* This @media rule is likely for other things and should remain if it is */
