@@ -86,8 +86,8 @@ class AppMuse {
     // Language dropdown toggle for mobile and desktop
     if (langDropdownBtn && langDropdownMenu) {
       langDropdownBtn.addEventListener('click', (e) => {
-        e.preventDefault();
         e.stopPropagation();
+        e.preventDefault();
         // Toggle the dropdown
         langDropdownMenu.classList.toggle('is-open');
       });
