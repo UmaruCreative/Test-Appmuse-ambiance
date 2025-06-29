@@ -83,11 +83,12 @@ class AppMuse {
     const langDropdownBtn = document.querySelector('.lang-dropdown-btn');
     const langDropdownMenu = document.querySelector('.lang-dropdown-menu');
 
-    // Language dropdown toggle for mobile
+    // Language dropdown toggle for mobile and desktop
     if (langDropdownBtn && langDropdownMenu) {
       langDropdownBtn.addEventListener('click', (e) => {
         e.preventDefault();
         e.stopPropagation();
+        // Toggle the dropdown
         langDropdownMenu.classList.toggle('is-open');
       });
 
